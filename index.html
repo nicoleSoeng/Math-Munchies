@@ -4,9 +4,65 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles/mathGame.css">
+    <title>Math Mania</title>
 </head>
 <body>
-    
+    <div class="main-ui">
+        <div class="headBox"></div>
+        <h1>Math Mania</h1>
+        <div class="timer-container">
+            <h2 class="timer-head">Timer:</h2>
+            <input class="seconds" type="number"><span class="sec"> seconds</span></input><br>
+            <button type="button" class="set-timer">Set Timer</button>
+            <button type="button" class="stop-timer">Stop Timer</button>
+        </div>
+        <div class=radioContainer>
+            <label for="operator"><h2>Problem Type:</h2></label>
+            <input class="radio" id="addButton" type="radio" name="operator-choice" value="addition"><span class="radio">Addition</span></input><br>
+            <input class="radio" id="subtractButton" type="radio" name="operator-choice" value="subtraction"><span class="radio">Subtraction</span></input><br>
+            <input class="radio" id="multiplyButton" type="radio" name="operator-choice" value="multiplication"><span class="radio">Multiplication</span></input><br>
+            <input class="radio" id="divideButton" type="radio" name="operator-choice" value="division"><span class="radio">Division</span>
+        </div>
+        <div class="problem-container">
+        <p class="problem"><span class="numberOne"></span><span class="numberTwo"></span></p>
+        <form action="" class="our-form">
+            <input type="text" class="our-field" autocomplete="off"><br>
+            <button class="submit">Submit</button><br><br>
+        </form>
+        </div>
+        <!-- <div class="chooseOperator">
+            <button class="addition">Addition</button>
+            <button class="subtraction">Subtraction</button>
+            <button class="multiplication">Multiplication</button>
+            </div> -->
+        <div class="points-tries">
+            <p>Points Needed: <span class="points-needed">10</span>
+            Tries Left: <span class="mistakes-allowed">2</span></p>
+            <p id="timer"></p>
+        </div>
+        <div class="progress">
+            <div class="boxes">
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+            </div>
+        <div class="progress-inner"></div>
+        </div>
+        </div>
+        <div class="overlay">
+            <div class="overlay-inner">
+                <p class="end-message"></p>
+                <button class="reset-button">Start Over</button>
+            </div>
+        </div>
+    <script src="scripts/mathGame.js"></script>
 </body>
 </html>
