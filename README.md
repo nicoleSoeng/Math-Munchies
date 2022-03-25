@@ -1,3 +1,3 @@
-# test-repo
-## Math Game
+# MathGameRepo
+## Math Munchies
 This is a sample math game, which randomly generates addition, subtraction and multiplication math problems.
