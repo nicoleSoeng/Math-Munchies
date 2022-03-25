@@ -5,19 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/mathGame.css">
-    <title>Math Mania</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hubballi&family=Inspiration&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <title>Math Munchies</title>
 </head>
 <body>
     <div class="main-ui">
         <div class="headBox"></div>
-        <h1>Math Mania</h1>
-        <div class="timer-container">
+        <h1>Math Munchies</h1>
+        <img id="pug" src="../images/pug.png" alt="Pug">
+        <!-- <div class="timer-container">
             <h2 class="timer-head">Timer:</h2>
             <input class="seconds" type="number"><span class="sec"> seconds</span></input><br>
             <button type="button" class="set-timer">Set Timer</button>
             <button type="button" class="stop-timer">Stop Timer</button>
-        </div>
-        <div class=radioContainer>
+        </div> -->
+        <div class="radioContainer">
             <label for="operator"><h2>Problem Type:</h2></label>
             <input class="radio" id="addButton" type="radio" name="operator-choice" value="addition"><span class="radio">Addition</span></input><br>
             <input class="radio" id="subtractButton" type="radio" name="operator-choice" value="subtraction"><span class="radio">Subtraction</span></input><br>
@@ -37,7 +41,7 @@
             <button class="multiplication">Multiplication</button>
             </div> -->
         <div class="points-tries">
-            <p>Points Needed: <span class="points-needed">10</span>
+            <p>Points Needed: <span class="points-needed">10</span><br>
             Tries Left: <span class="mistakes-allowed">2</span></p>
             <p id="timer"></p>
         </div>
