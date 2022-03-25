@@ -26,29 +26,10 @@ let state= {
 
 operatorChoice.forEach(item => {item.addEventListener("click", updateProblem)})
 // operatorChoice.forEach(item => {item.addEventListener("click", autoSubmit)})
-setTimerButton.addEventListener("click", setTimer)
-stopTimerButton.addEventListener("click", stopTimer)
-
-function setTimer() {
-    setTimerButton.style.display="none";
-    stopTimerButton.style.display="block";
-    // myTimer();
-    // timerHead.style.display="none";
-    // seconds.style.display="none";
-    // sec.style.display="none";
-}
-
-function stopTimer() {
-    setTimerButton.style.display="block";
-    stopTimerButton.style.display="none";
-    // timerHead.style.display="block";
-    // seconds.style.display="block";
-    // sec.style.display="block";
-}
-
 
 
 function updateProblem() {
+    problemElement.style.display = "block";
     state.currentProblem = generateProblem()
     problemElement.innerHTML= `${state.currentProblem.numberOne} ${state.currentProblem.operator} ${state.currentProblem.numberTwo}`
     ourField.value = ""
