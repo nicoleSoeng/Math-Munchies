@@ -193,11 +193,7 @@ body.overlay-is-open .main-ui {
 }
 
 @media screen and (max-width: 800px) {
-    body {
-        margin: 5px;
-        margin-right: 5px;
-        margin-left: 5px;
-    }
+
     .main-ui {
         grid-template-areas: "h h h h"
                              "i i i i"
