@@ -22,11 +22,25 @@
             <button type="button" class="stop-timer">Stop Timer</button>
         </div> -->
         <div class="radioContainer">
-            <label for="operator"><h2>Problem Type:</h2></label>
-            <input class="radio" id="addButton" type="radio" name="operator-choice" value="addition"><span class="radio">Addition</span></input><br>
-            <input class="radio" id="subtractButton" type="radio" name="operator-choice" value="subtraction"><span class="radio">Subtraction</span></input><br>
-            <input class="radio" id="multiplyButton" type="radio" name="operator-choice" value="multiplication"><span class="radio">Multiplication</span></input><br>
-            <input class="radio" id="divideButton" type="radio" name="operator-choice" value="division"><span class="radio">Division</span>
+            <label for="operator"><h2>Problem Type</h2></label>
+            <table>
+                <tr>
+                <td>
+                <input class="radio" id="addButton" type="radio" name="operator-choice" value="addition"><label class="operator-image" for="addButton"> <img id="operator-image" src="images/plus-sign.svg"> </label></input><br>
+                </td>
+                <td>
+                <input class="radio" id="subtractButton" type="radio" name="operator-choice" value="subtraction"><label class="operator-image" for="subtractButton"> <img id="operator-image" src="images/minus-sign.svg"> </label></input><br>
+                </td>    
+                </tr>
+                <tr>
+                <td>
+                <input class="radio" id="multiplyButton" type="radio" name="operator-choice" value="multiplication"><label class="operator-image" for="multiplyButton"> <img id="operator-image" src="images/multiply-sign.svg"> </label></input><br>
+                </td>
+                <td>
+                <input class="radio" id="divideButton" type="radio" name="operator-choice" value="division"><label class="operator-image" for="divideButton"> <img id="operator-image" src="images/divide-sign.svg"> </label> </input>
+                </td>    
+                </tr>
+            </table>
         </div>
         <div class="problem-container">
         <p class="problem"><span class="numberOne"></span><span class="numberTwo"></span></p>
