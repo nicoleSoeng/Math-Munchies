@@ -3,7 +3,8 @@ const ourForm= document.querySelector(".our-form");
 const ourField= document.querySelector(".our-field");
 const pointsNeeded= document.querySelector(".points-needed");
 const mistakesAllowed= document.querySelector(".mistakes-allowed");
-const progressBar= document.querySelector(".progress-inner");
+const progressBar= document.querySelector(".progress");
+const progressFill= document.querySelector(".progress-inner");
 const endMessage= document.querySelector(".end-message");
 const resetButton= document.querySelector(".reset-button");
 const submitButton= document.querySelector(".submit");
@@ -41,6 +42,7 @@ function generateNumber(max) {
 };
 
 function generateProblem() {
+    updatePugQuotes();
     if (document.getElementById("subtractButton").checked == true) {
         operator = "-"
         numberOne = generateNumber(20)
@@ -172,9 +174,29 @@ function resetGame() {
 }
 
 function renderProgressBar() {
-    progressBar.style.transform = `scaleX(${state.score/ 10})`
+    progressFill.style.transform = `scaleX(${1-(state.score/10)})`;
+    progressFill.style.borderTopLeftRadius = "0px";
+    progressFill.style.borderBottomLeftRadius = "0px";
 }
 
+function updatePugQuotes() {
+    var pugQuote = document.getElementById("pugQuote");
+    if(state.score == 0) {
+        pugQuote.innerHTML= "I'm so hungry!";
+    }
+    else if(state.score > 0 && state.score <= 3) {
+        pugQuote.innerHTML= "Yay! A little food for my belly.";
+    }
+    else if(state.score > 3 && state.score <= 7) {
+        pugQuote.innerHTML= "Yum! This food is good.";
+    }
+    else if(state.score > 7 && state.score < 10) {
+        pugQuote.innerHTML= "Almost full!";
+    }
+    else if(state.score ==10) {
+        pugQuote.innerHTML= "Yay! I'm full.";
+    }
+}
 // additionButton.addEventListener("click", updateProblem)
 // multiplicationButton.addEventListener("click", updateProblem)
 
