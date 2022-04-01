@@ -161,6 +161,7 @@ button {
     bottom: 0;
     width: 100%;
     background-color: white;
+    /* background-image: linear-gradient(to right, red,yellow, green); */
     /* opacity: .5; */
     transform: scaleX(0);
     transform-origin: center left;
@@ -198,6 +199,7 @@ body.overlay-is-open .overlay {
 body.overlay-is-open .main-ui {
     filter: blur(4px);
 }
+
 @keyframes showError {
     50% {
         color: red;
