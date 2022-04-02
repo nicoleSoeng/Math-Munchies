@@ -19,7 +19,6 @@ const seconds= document.querySelector(".seconds")
 const sec= document.querySelector(".sec")
 const timerContainer= document.querySelector(".timerContainer")
 
-
 let state= {
     score: 0,
     wrongAnswers: 0
@@ -30,20 +29,28 @@ operatorChoice.forEach(item => {item.addEventListener("click", updateProblem)})
 
 
 function updateProblem() {
-    setTimeout(handleAutoSubmit, 10000)
+    stopTimer();
     problemElement.style.display = "block";
     state.currentProblem = generateProblem()
     problemElement.innerHTML= `${state.currentProblem.numberOne} ${state.currentProblem.operator} ${state.currentProblem.numberTwo}`
     ourField.value = ""
     ourField.focus()
+    startTimer();
 };
 
+function startTimer() {
+    timer = setTimeout(handleAutoSubmit, 10000)
+};
+
+function stopTimer() {
+    clearTimeout(timer)
+};
 function generateNumber(max) {
     return Math.floor(Math.random() * (max + 1))
 };
 
 function generateProblem() {
-    clearTimeout(handleAutoSubmit)
+    //clearTimeout(handleAutoSubmit)
     updatePugQuotes();
     if (document.getElementById("subtractButton").checked == true) {
         operator = "-"
@@ -77,13 +84,13 @@ function generateProblem() {
         numberTwo,
         operator
     }
+    
 }
 
 ourForm.addEventListener("submit", handleSubmit);
 
-function autoSubmit() {
-    setTimeout(handleAutoSubmit, 10000)
-}
+// function autoSubmit() {
+//     setTimeout(handleAutoSubmit, 10000)
 
 // var sec = 15
 // function decreaseSec {
@@ -117,14 +124,14 @@ function handleAutoSubmit() {
     setTimeout(()=> problemElement.classList.remove("animate-wrong"), 331)
     // ourField.value=""
     // ourField.focus()
+//    clearTimeout(handleAutoSubmit)
     updateProblem()
     checkLogic()
-    // setTimeOut(myTimer, 1000)
+   // setTimeOut(myTimer, 1000) 
 }
 
 function handleSubmit(e) {
     e.preventDefault()
-    clearTimeout(handleAutoSubmit)
     let correctAnswer
     const p = state.currentProblem
     if (p.operator == "+") correctAnswer = p.numberOne + p.numberTwo
@@ -134,19 +141,23 @@ function handleSubmit(e) {
     if(parseInt(ourField.value, 10) === correctAnswer) {
         state.score++
         pointsNeeded.textContent = 10 - state.score
+        //clearTimeout(handleAutoSubmit)
         updateProblem()
         renderProgressBar()
     }
     
     else {
+        stopTimer()
         state.wrongAnswers++
         mistakesAllowed.textContent = 2 - state.wrongAnswers
         problemElement.classList.add("animate-wrong")
         setTimeout(()=> problemElement.classList.remove("animate-wrong"), 331)
         ourField.value=""
         ourField.focus()
+        startTimer()
     }
     checkLogic()
+   // setTimeOut(myTimer, 1000)
     };
 
 function checkLogic() {
