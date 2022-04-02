@@ -30,6 +30,7 @@ operatorChoice.forEach(item => {item.addEventListener("click", updateProblem)})
 
 
 function updateProblem() {
+    setTimeout(handleAutoSubmit, 10000)
     problemElement.style.display = "block";
     state.currentProblem = generateProblem()
     problemElement.innerHTML= `${state.currentProblem.numberOne} ${state.currentProblem.operator} ${state.currentProblem.numberTwo}`
@@ -42,6 +43,7 @@ function generateNumber(max) {
 };
 
 function generateProblem() {
+    clearTimeout(handleAutoSubmit)
     updatePugQuotes();
     if (document.getElementById("subtractButton").checked == true) {
         operator = "-"
@@ -117,11 +119,12 @@ function handleAutoSubmit() {
     // ourField.focus()
     updateProblem()
     checkLogic()
-    setTimeOut(myTimer, 1000)
+    // setTimeOut(myTimer, 1000)
 }
 
 function handleSubmit(e) {
     e.preventDefault()
+    clearTimeout(handleAutoSubmit)
     let correctAnswer
     const p = state.currentProblem
     if (p.operator == "+") correctAnswer = p.numberOne + p.numberTwo
