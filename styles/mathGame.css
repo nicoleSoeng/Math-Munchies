@@ -9,19 +9,29 @@ body {
     margin-left: 20px; */
     color: black;
     font-weight: bold;
-    background-image: url("../images/bone-background.jpg");
+    /* background-image: url("../images/bone-background.jpg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover; */
+  background-color: rgb(224, 224, 134);
 }
-.main-ui {
+/* .main-ui {
     margin: 0;
     display: grid;
     grid-template-areas: "h h h h h h"
                          "i i i i i i"
                          "o p p p p c"
-                         "b b b b b b";
+                         "b b b b b b"; 
+}*/
+.problem-img-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(74, 116, 206);
+
 }
 #pug {
     grid-area: i;
@@ -246,3 +256,69 @@ body.overlay-is-open .main-ui {
         margin: 0px;
     }
 }
+
+/*Settings Page Styles*/
+.settings-main-content {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: rgb(224, 224, 134);
+    background-color: rgb(74, 116, 206);
+}
+
+.settings-main-content h1 {
+    width: 100%;
+    background-color: rgb(74, 116, 206);
+    background-color: rgb(224, 224, 134);
+    padding: 0;
+}
+
+.settings-main-content h2 {
+    width: 100%;
+    margin: 0;
+    background-color: rgb(74, 116, 206);
+}
+.radioContainer {
+    border: 5px solid rgb(86, 185, 40);
+    background-color: rgb(74, 116, 206);
+    border-radius: 5px;;
+    padding: 10px 50px;
+    margin: 10px;
+}
+.timer-container {
+    display: flex;
+    flex-direction: column;
+    border: 5px solid rgb(86, 185, 40);
+    background-color: rgb(74, 116, 206);
+    border-radius: 5px;;
+    padding: 10px 50px;
+    margin: 10px;
+}
+
+.timer-container button {
+    width: 150px;
+    background-color: rgb(86, 185, 40);
+    color: white;
+}
+.number-choice-container {
+    text-align: left;
+    border: 5px solid rgb(86, 185, 40);
+    background-color: rgb(74, 116, 206);
+    border-radius: 5px;;
+    padding: 10px 50px;
+    margin: 10px;
+}
+
+.numbers {
+    columns: 2;
+}
+
+.settings-main-content a {
+    width: 100%;
+}
+

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/mathGame.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hubballi&family=Inspiration&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <title>Math Munchies</title>
+</head>
+<body>
+    <div class="settings-main-content">
+    <h1>Welcome to Math Munchies</h1>
+    <h2>Choose how you want to practice your math facts and help the hungry pooch.</h2>
+    <div class="radioContainer">
+        <label for="operator"><h3>Problem Type</h3></label>
+        <table>
+            <tr>
+            <td>
+            <input class="radio" id="addButton" type="radio" name="operator-choice" value="addition"><label class="operator-image" for="addButton"> <img class="operator-image" src="images/plus-sign.svg"> </label></input><br>
+            </td>
+            <td>
+            <input class="radio" id="subtractButton" type="radio" name="operator-choice" value="subtraction"><label class="operator-image" for="subtractButton"> <img class="operator-image" src="images/minus-sign.svg"> </label></input><br>
+            </td>    
+            </tr>
+            <tr>
+            <td>
+            <input class="radio" id="multiplyButton" type="radio" name="operator-choice" value="multiplication"><label class="operator-image" for="multiplyButton"> <img class="operator-image" src="images/multiply-sign.svg"> </label></input><br>
+            </td>
+            <td>
+            <input class="radio" id="divideButton" type="radio" name="operator-choice" value="division"><label class="operator-image" for="divideButton"> <img class="operator-image" src="images/divide-sign.svg"> </label> </input>
+            </td>    
+            </tr>
+        </table>
+    </div>
+    <div class="timer-container">
+            <h3 class="timer-head">Timer:</h3>
+            <button type="button" class="timer-seconds-btn no-timer">No Timer</button>
+            <button type="button" class="timer-seconds-btn five-seconds-btn">5 seconds</button> 
+            <button type="button" class="timer-seconds-btn ten-seconds-btn">10 seconds</button> 
+            <button type="button" class="timer-seconds-btn fifteen-seconds-btn">15 seconds</button>  
+            <button type="button" class="timer-seconds-btn twenty-seconds-btn">20 seconds</button>        
+    </div>
+    <div class="number-choice-container">
+        <h3>Choose numbers for math facts:</h3>
+        <div class="numbers">
+        <input type="checkbox" id="num1" name="num1" value="1">
+        <label for="num1">1</label><br>
+        <input type="checkbox" id="num2" name="num2" value="2">
+        <label for="num2">2</label><br>
+        <input type="checkbox" id="num3" name="num3" value="3">
+        <label for="num3">3</label><br>
+        <input type="checkbox" id="num4" name="num4" value="4">
+        <label for="num4">4</label><br>
+        <input type="checkbox" id="num5" name="num5" value="5">
+        <label for="num5">5</label><br>
+        <input type="checkbox" id="num6" name="num6" value="6">
+        <label for="num6">6</label><br>
+        <input type="checkbox" id="num7" name="num7" value="7">
+        <label for="num7">7</label><br>
+        <input type="checkbox" id="num8" name="num8" value="8">
+        <label for="num8">8</label><br>
+        <input type="checkbox" id="num9" name="num9" value="9">
+        <label for="num9">9</label><br>
+        <input type="checkbox" id="num10" name="num10" value="10">
+        <label for="num10">10</label><br>
+        <input type="checkbox" id="num11" name="num11" value="11">
+        <label for="num11">11</label><br>
+        <input type="checkbox" id="num12" name="num12" value="12">
+        <label for="num12">12</label><br>
+    </div>
+    </div>
+    <a href="index.html">Start Practicing Your Math Facts!</a>
+</div>
+    <script src="scripts/mathGame.js"></script>
+</body>
+</html>
