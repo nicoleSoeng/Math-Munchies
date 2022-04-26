@@ -11,39 +11,83 @@
     <title>Math Munchies</title>
 </head>
 <body>
-    <div class="main-ui">
-        <div class="headBox"></div>
-        <h1>Math Munchies</h1>
-        <!-- <div class="timer-container">
-            <h2 class="timer-head">Timer:</h2>
-            <input class="seconds" type="number"><span class="sec"> seconds</span></input><br>
-            <button type="button" class="set-timer">Set Timer</button>
-            <button type="button" class="stop-timer">Stop Timer</button>
-        </div> -->
-        <!-- <div class="radioContainer">
-            <label for="operator"><h2>Problem Type</h2></label>
+    <!-- <div class="settings-main-content-index">
+        <h1>Welcome to Math Munchies</h1>
+        <h2>Choose how you want to practice your math facts and help the hungry pooch.</h2>
+        <div class="settings-boxes">
+        <div class="radioContainer">
+            <label for="operator"><h3>Problem Type</h3></label>
             <table>
                 <tr>
                 <td>
-                <input class="radio" id="addButton" type="radio" name="operator-choice" value="addition"><label class="operator-image" for="addButton"> <img id="operator-image" src="images/plus-sign.svg"> </label></input><br>
+                <input class="radio" id="addButton" type="radio" name="operator-choice" value="addition"><label class="operator-image" for="addButton"> Addition </label></input><br>
                 </td>
-                <td>
-                <input class="radio" id="subtractButton" type="radio" name="operator-choice" value="subtraction"><label class="operator-image" for="subtractButton"> <img id="operator-image" src="images/minus-sign.svg"> </label></input><br>
-                </td>    
                 </tr>
                 <tr>
                 <td>
-                <input class="radio" id="multiplyButton" type="radio" name="operator-choice" value="multiplication"><label class="operator-image" for="multiplyButton"> <img id="operator-image" src="images/multiply-sign.svg"> </label></input><br>
-                </td>
+                <input class="radio" id="subtractButton" type="radio" name="operator-choice" value="subtraction"><label class="operator-image" for="subtractButton"> Subtraction</label></input><br>
+                </td> 
+            </tr>
+            <tr>  
                 <td>
-                <input class="radio" id="divideButton" type="radio" name="operator-choice" value="division"><label class="operator-image" for="divideButton"> <img id="operator-image" src="images/divide-sign.svg"> </label> </input>
+                <input class="radio" id="multiplyButton" type="radio" name="operator-choice" value="multiplication"><label class="operator-image" for="multiplyButton"> Multiplication </label></input><br>
+                </td>
+            </tr> 
+            <tr>
+                <td>
+                <input class="radio" id="divideButton" type="radio" name="operator-choice" value="division"><label class="operator-image" for="divideButton"> Division </label> </input>
                 </td>    
                 </tr>
             </table>
-        </div> -->
-        <a href="settings.html">Settings</a>
+        </div>
+        <div class="timer-container">
+                <h3 class="timer-head">Timer</h3>
+                <button type="radio" class="timer-seconds-btn no-timer">No Timer</button>
+                <button type="radio" class="timer-seconds-btn five-seconds-btn">5 seconds</button> 
+                <button type="radio" class="timer-seconds-btn ten-seconds-btn">10 seconds</button> 
+                <button type="radio" class="timer-seconds-btn fifteen-seconds-btn">15 seconds</button>  
+                <button type="radio" class="timer-seconds-btn twenty-seconds-btn">20 seconds</button>        
+        </div>
+        <div class="number-choice-container">
+            <h3>Choose the numbers you want to practice</h3>
+            <div class="numbers">
+            <input type="checkbox" id="num1" name="num1" value="1" checked>
+            <label for="num1">1</label><br>
+            <input type="checkbox" id="num2" name="num2" value="2" checked>
+            <label for="num2">2</label><br>
+            <input type="checkbox" id="num3" name="num3" value="3" checked>
+            <label for="num3">3</label><br>
+            <input type="checkbox" id="num4" name="num4" value="4" checked>
+            <label for="num4">4</label><br>
+            <input type="checkbox" id="num5" name="num5" value="5" checked>
+            <label for="num5">5</label><br>
+            <input type="checkbox" id="num6" name="num6" value="6" checked>
+            <label for="num6">6</label><br>
+            <input type="checkbox" id="num7" name="num7" value="7" checked>
+            <label for="num7">7</label><br>
+            <input type="checkbox" id="num8" name="num8" value="8" checked>
+            <label for="num8">8</label><br>
+            <input type="checkbox" id="num9" name="num9" value="9" checked>
+            <label for="num9">9</label><br>
+            <input type="checkbox" id="num10" name="num10" value="10" checked>
+            <label for="num10">10</label><br>
+            <input type="checkbox" id="num11" name="num11" value="11" checked>
+            <label for="num11">11</label><br>
+            <input type="checkbox" id="num12" name="num12" value="12" checked>
+            <label for="num12">12</label><br>
+        </div>
+        </div>
+    </div>
+        <div class="start-btn">
+            <button type="submit" id="start-btn" onclick="location.href='index.html', updateProblem()">Start Practicing Your Math Facts!</a>
+            </div>
+    </div> -->
+    <div class="main-ui">
+        <div class="headBox">
+        <h1>MATH MUNCHIES</h1>
+        <a id="settings-btn" href="settings.html">Settings</a>
+    </div>
         <div class="problem-img-container">
-        <img id="pug" src="images/pug.png" alt="Pug">
         <div class="problem-container">
         <p class="problem"><span class="numberOne"></span><span class="numberTwo"></span></p>
         <form action="" class="our-form">
@@ -51,22 +95,19 @@
             <button class="submit">Submit</button><br><br>
         </form>
         </div>
+        <img id="pug" src="images/pug-2.png" alt="Pug">
         </div>
-        <!-- <div class="chooseOperator">
-            <button class="addition">Addition</button>
-            <button class="subtraction">Subtraction</button>
-            <button class="multiplication">Multiplication</button>
-            </div> -->
         <div class="points-tries">
             <p>Points Needed: <span class="points-needed">10</span><br>
             Tries Left: <span class="mistakes-allowed">2</span></p>
             <p id="timer"></p>
         </div>
+        
         <div class="progress-bar">
             <h2>Hunger Meter</h2>
-            <div class="progress-bar-statements">
+            <!-- <div class="progress-bar-statements">
             <p id="pugQuote"></p>
-        </div>
+        </div> -->
         <div class="progress">
             <div class="boxes">
                 <div class="box"></div>
@@ -74,6 +115,30 @@
         <div class="progress-inner"></div>
         </div>
         </div>
+        <div class="radioContainerIndex">
+            <label for="operator"><h3>Problem Type</h3></label>
+            <table>
+                <tr>
+                <td>
+                <input class="radio" id="addButton" type="radio" name="operator-choice" value="addition"><label class="operator-image" for="addButton"> Addition </label></input><br>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                <input class="radio" id="subtractButton" type="radio" name="operator-choice" value="subtraction"><label class="operator-image" for="subtractButton"> Subtraction</label></input><br>
+                </td> 
+            </tr>
+            <tr>  
+                <td>
+                <input class="radio" id="multiplyButton" type="radio" name="operator-choice" value="multiplication"><label class="operator-image" for="multiplyButton"> Multiplication </label></input><br>
+                </td>
+            </tr> 
+            <tr>
+                <td>
+                <input class="radio" id="divideButton" type="radio" name="operator-choice" value="division"><label class="operator-image" for="divideButton"> Division </label> </input>
+                </td>    
+                </tr>
+            </table>
         </div>
         <div class="overlay">
             <div class="overlay-inner">
@@ -81,6 +146,8 @@
                 <button class="reset-button">Start Over</button>
             </div>
         </div>
+        </div>
+
     <script src="scripts/mathGame.js"></script>
 </body>
 </html>

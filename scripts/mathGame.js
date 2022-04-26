@@ -18,11 +18,13 @@ const timerHead= document.querySelector(".timer-head")
 const seconds= document.querySelector(".seconds")
 const sec= document.querySelector(".sec")
 const timerContainer= document.querySelector(".timerContainer")
+const StartBtn = document.getElementById("start-btn")
 
 let state= {
     score: 0,
     wrongAnswers: 0
 };
+
 
 operatorChoice.forEach(item => {item.addEventListener("click", updateProblem)})
 // operatorChoice.forEach(item => {item.addEventListener("click", autoSubmit)})
@@ -30,7 +32,7 @@ operatorChoice.forEach(item => {item.addEventListener("click", updateProblem)})
 
 function updateProblem() {
     stopTimer();
-    problemElement.style.display = "block";
+    problemElement.style.visibility = "visible";
     state.currentProblem = generateProblem()
     problemElement.innerHTML= `${state.currentProblem.numberOne} ${state.currentProblem.operator} ${state.currentProblem.numberTwo}`
     ourField.value = ""
@@ -51,7 +53,7 @@ function generateNumber(max) {
 
 function generateProblem() {
     //clearTimeout(handleAutoSubmit)
-    updatePugQuotes();
+    // updatePugQuotes();
     if (document.getElementById("subtractButton").checked == true) {
         operator = "-"
         numberOne = generateNumber(20)
