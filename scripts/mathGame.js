@@ -19,40 +19,81 @@ const seconds= document.querySelector(".seconds")
 const sec= document.querySelector(".sec")
 const timerContainer= document.querySelector(".timerContainer")
 const StartBtn = document.getElementById("start-btn")
+const settingsContent= document.querySelector(".settings-main-content-index")
+const MainUI= document.querySelector(".main-ui")
+let timerSeconds= 10
+const timerEl = document.getElementById('timer'); 
 
 let state= {
     score: 0,
     wrongAnswers: 0
 };
 
+function showSettings() {
+    stopTimer();
+    settingsContent.style.display="flex";
+    MainUI.style.display="none";
+}
 
-operatorChoice.forEach(item => {item.addEventListener("click", updateProblem)})
+function showMainUI() {
+    settingsContent.style.display="none";
+    MainUI.style.display="block";
+    updateProblem();
+}
+// operatorChoice.forEach(item => {item.addEventListener("click", updateProblem)})
 // operatorChoice.forEach(item => {item.addEventListener("click", autoSubmit)})
 
 
 function updateProblem() {
+    stopCountdown();
+    // stopStartCountdown();
     stopTimer();
+    let timerSeconds = 10;
+    timerEl.innerHTML = timerSeconds + " seconds left";
     problemElement.style.visibility = "visible";
     state.currentProblem = generateProblem()
     problemElement.innerHTML= `${state.currentProblem.numberOne} ${state.currentProblem.operator} ${state.currentProblem.numberTwo}`
     ourField.value = ""
     ourField.focus()
     startTimer();
+    startCountdown();
+};
+
+function updateTimer() {
+    let seconds = Math.floor(timerSeconds - 1);
+    timerEl.innerHTML = seconds + " seconds left";
+    timerSeconds--;
+    if (timerSeconds == 0) {
+        updateProblem();
+    }
+};
+function stopStartCountdown() {
+    timerCountdown = setInterval(updateTimer, 1000);
+    clearInterval(timerCountdown);
+    setInterval(updateTimer, 1000);  
+}
+function startCountdown() {
+    timerCountdown = setInterval(updateTimer, 1000);
+};
+
+function stopCountdown() {
+    timerCountdown = setInterval(updateTimer, 1000);
+    clearInterval(timerCountdown);
 };
 
 function startTimer() {
-    timer = setTimeout(handleAutoSubmit, 10000)
+    timer = setTimeout(handleAutoSubmit, 10000);
 };
 
 function stopTimer() {
-    clearTimeout(timer)
+    clearTimeout(timer);
 };
+
 function generateNumber(max) {
     return Math.floor(Math.random() * (max + 1))
 };
 
 function generateProblem() {
-    //clearTimeout(handleAutoSubmit)
     // updatePugQuotes();
     if (document.getElementById("subtractButton").checked == true) {
         operator = "-"
@@ -124,12 +165,8 @@ function handleAutoSubmit() {
     mistakesAllowed.textContent = 2 - state.wrongAnswers
     problemElement.classList.add("animate-wrong")
     setTimeout(()=> problemElement.classList.remove("animate-wrong"), 331)
-    // ourField.value=""
-    // ourField.focus()
-//    clearTimeout(handleAutoSubmit)
     updateProblem()
     checkLogic()
-   // setTimeOut(myTimer, 1000) 
 }
 
 function handleSubmit(e) {
@@ -143,7 +180,6 @@ function handleSubmit(e) {
     if(parseInt(ourField.value, 10) === correctAnswer) {
         state.score++
         pointsNeeded.textContent = 10 - state.score
-        //clearTimeout(handleAutoSubmit)
         updateProblem()
         renderProgressBar()
     }
@@ -159,7 +195,6 @@ function handleSubmit(e) {
         startTimer()
     }
     checkLogic()
-   // setTimeOut(myTimer, 1000)
     };
 
 function checkLogic() {
@@ -213,128 +248,3 @@ function updatePugQuotes() {
         pugQuote.innerHTML= "Yay! I'm full.";
     }
 }
-// additionButton.addEventListener("click", updateProblem)
-// multiplicationButton.addEventListener("click", updateProblem)
-
-// function updateProblem() {
-//     state.currentProblem = generateProblem()
-//     if (state.currentProblem.numberOne > state.currentProblem.numberTwo) {
-//     problemElement.innerHTML= `${state.currentProblem.numberOne} ${state.currentProblem.operator} ${state.currentProblem.numberTwo}`
-//     ourField.value = ""
-//     ourField.focus()
-//     return true
-//     }
-//     else if (state.currentProblem.numberOne < state.currentProblem.numberTwo) {
-//     problemElement.innerHTML= `${state.currentProblem.numberTwo} ${state.currentProblem.operator} ${state.currentProblem.numberOne}`
-//     ourField.value = ""
-//     ourField.focus()
-//     return false
-//     }
-// };
-
-// function updateAddProblem() {
-//     state.currentProblem = generateAddProblem()
-//     problemElement.innerHTML= `${state.currentProblem.numberOne} ${state.currentProblem.operator} ${state.currentProblem.numberTwo}`
-//     ourField.value = ""
-//     ourField.focus()
-// };
-
-// function updateSubtProblem() {
-//     state.currentProblem = generateSubtProblem()
-//     problemElement.innerHTML= `${state.currentProblem.numberOne} ${state.currentProblem.operator} ${state.currentProblem.numberTwo}`
-//     ourField.value = ""
-//     ourField.focus()
-// };
-
-// function updateMultProblem() {
-//     state.currentProblem = generateMultProblem()
-//     problemElement.innerHTML= `${state.currentProblem.numberOne} ${state.currentProblem.operator} ${state.currentProblem.numberTwo}`
-//     ourField.value = ""
-//     ourField.focus()
-// };
-
-// function generateMultProblem() {
-//     return {
-//         numberOne: generateNumber(10),
-//         numberTwo: generateNumber(10),
-//         operator: "x"
-//     }
-// };
-
-// function generateAddProblem() {
-//     return {
-//         numberOne: generateNumber(10),
-//         numberTwo: generateNumber(10),
-//         operator: "+"
-//     }
-// };
-
-// function generateSubtProblem() {
-//     return {
-//         numberOne: generateNumber(10),
-//         numberTwo: generateNumber(10),
-//         operator: "-"
-//     }
-// };
-// function resetAddGame() {
-//     updateAddProblem()
-//     state.score=0
-//     state.wrongAnswers= 0
-//     pointsNeeded.textContent = 10
-//     mistakesAllowed.textContent = 2
-// }
-
-// function resetSubtGame() {
-//     updateSubtProblem()
-//     state.score=0
-//     state.wrongAnswers= 0
-//     pointsNeeded.textContent = 10
-//     mistakesAllowed.textContent = 2
-// }
-// function resetMultGame() {
-//     updateMultProblem()
-//     state.score=0
-//     state.wrongAnswers= 0
-//     pointsNeeded.textContent = 10
-//     mistakesAllowed.textContent = 2
-// }
-
-// addition.addEventListener("click", resetAddGame);
-// subtraction.addEventListener("click", resetSubtGame);
-// multiplication.addEventListener("click", resetMultGame);
-
-// function updateProblemSubtract() {
-//     sOperator = "-"
-//     state.currentProblem = generateProblem()
-//     problemElement.innerHTML= `${state.currentProblem.numberOne}` + " " + sOperator + " " + `${state.currentProblem.numberTwo}`
-//     ourField.value = ""
-//     ourField.focus()
-// };
-
-// function updateProblemAdd() {
-//     aOperator = "+"
-//     state.currentProblem = generateProblem()
-//     problemElement.innerHTML= `${state.currentProblem.numberOne}` + " " + aOperator + " " + `${state.currentProblem.numberTwo}`
-//     ourField.value = ""
-//     ourField.focus()
-// };
-
-// function updateProblemMultiply() {
-//     mOperator = "x"
-//     state.currentProblem = generateProblem()
-//     problemElement.innerHTML= `${state.currentProblem.numberOne}` + " " + mOperator + " " + `${state.currentProblem.numberTwo}`
-//     ourField.value = ""
-//     ourField.focus()
-// };
-
-// function setOperatorSubtract() {
-//     p.operator.value = "-"
-// }
-
-// function setOperatorAdd() {
-//     p.operator.value = "+"
-// }
-
-// function setOperatorMultiply() {
-//     p.operator.value = "x"
-// }

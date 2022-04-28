@@ -20,11 +20,13 @@ body {
 }
 
 .settings-main-content-index {
+    display: none;
     width: 100%;
-    height: 0px;
+    height: 100%;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
-    display: flex;
+    /* display: flex; */
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -41,7 +43,7 @@ body {
       transition: height .4s ease-out;
 }
 
-#settings-btn:focus > .settings-main-content-index {
+/* #settings-btn:focus > .settings-main-content-index {
     height: 800px;
     opacity: 1;
     transition: height .4s ease-in;
@@ -51,7 +53,7 @@ body {
 
 #start-btn:focus > .settings-main-content-index {
     height: 0;
-}
+} */
 /* .main-ui {
     margin: 0;
     display: grid;
@@ -66,6 +68,7 @@ body {
 }
 #settings-btn {
     position: absolute;
+    cursor: pointer;
     top: 60px;
     right: 10%;
     width: 100px;
@@ -167,6 +170,14 @@ h1 {
 .points-needed {
     margin-right: 20px;
 }
+#timer {
+ height: auto;
+ width: auto;
+ color: black;
+ font-weight: bold;
+ font-size: 2rem;
+}
+
 .radioContainerIndex {
     /* border: 5px solid rgb(86, 185, 40); */
     /* background-color: rgb(52, 101, 206); */
@@ -530,6 +541,7 @@ td:focus {
     padding: 20px;
     border-radius: 5px;
     margin: 0;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 800px) {

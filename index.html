@@ -11,7 +11,7 @@
     <title>Math Munchies</title>
 </head>
 <body>
-    <!-- <div class="settings-main-content-index">
+    <div class="settings-main-content-index">
         <h1>Welcome to Math Munchies</h1>
         <h2>Choose how you want to practice your math facts and help the hungry pooch.</h2>
         <div class="settings-boxes">
@@ -79,13 +79,15 @@
         </div>
     </div>
         <div class="start-btn">
-            <button type="submit" id="start-btn" onclick="location.href='index.html', updateProblem()">Start Practicing Your Math Facts!</a>
+            <button type="button" id="start-btn" onclick="showMainUI()">Start Practicing Your Math Facts!</button>
+            <!-- <button type="submit" id="start-btn" onclick="location.href='index.html', updateProblem()">Start Practicing Your Math Facts!</button> -->
             </div>
-    </div> -->
+    </div>
     <div class="main-ui">
         <div class="headBox">
         <h1>MATH MUNCHIES</h1>
-        <a id="settings-btn" href="settings.html">Settings</a>
+        <a id="settings-btn" onclick="showSettings()">Settings</a>
+        <!-- <a id="settings-btn" href="settings.html">Settings</a> -->
     </div>
         <div class="problem-img-container">
         <div class="problem-container">
@@ -97,12 +99,11 @@
         </div>
         <img id="pug" src="images/pug-2.png" alt="Pug">
         </div>
+        <p id="timer"></p>
         <div class="points-tries">
             <p>Points Needed: <span class="points-needed">10</span><br>
             Tries Left: <span class="mistakes-allowed">2</span></p>
-            <p id="timer"></p>
         </div>
-        
         <div class="progress-bar">
             <h2>Hunger Meter</h2>
             <!-- <div class="progress-bar-statements">
@@ -115,7 +116,7 @@
         <div class="progress-inner"></div>
         </div>
         </div>
-        <div class="radioContainerIndex">
+        <!-- <div class="radioContainerIndex">
             <label for="operator"><h3>Problem Type</h3></label>
             <table>
                 <tr>
@@ -139,7 +140,7 @@
                 </td>    
                 </tr>
             </table>
-        </div>
+        </div> -->
         <div class="overlay">
             <div class="overlay-inner">
                 <p class="end-message"></p>
