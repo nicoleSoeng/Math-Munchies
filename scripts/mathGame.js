@@ -21,8 +21,16 @@ const timerContainer= document.querySelector(".timerContainer")
 const StartBtn = document.getElementById("start-btn")
 const settingsContent= document.querySelector(".settings-main-content-index")
 const MainUI= document.querySelector(".main-ui")
-let timerSeconds= 10
+// let timerSeconds= 10
 const timerEl = document.getElementById('timer'); 
+const timerValue = document.querySelectorAll(".timer-seconds-btn").value;
+const noTimer= document.getElementById("no-timer");
+const fiveSecBtn= document.getElementById("five-seconds-btn");
+const tenSecBtn= document.getElementById("ten-seconds-btn");
+const fifteenSecBtn= document.getElementById("fifteen-seconds-btn");
+const twentySecBtn= document.getElementById("twenty-seconds-btn");
+var countdownTimer
+var timerSeconds
 
 let state= {
     score: 0,
@@ -43,12 +51,69 @@ function showMainUI() {
 // operatorChoice.forEach(item => {item.addEventListener("click", updateProblem)})
 // operatorChoice.forEach(item => {item.addEventListener("click", autoSubmit)})
 
-
+function changeAvatarPug() {
+    document.getElementById("avatar").src="/images/pug-2.png";
+    document.getElementById("pugAvatar").style.backgroundColor="rgb(52, 101, 206)";
+    document.querySelector(".problem").style.backgroundImage="url('../images/bone-white.png')";
+    document.getElementById("huskyAvatar").style.backgroundColor="transparent";
+    document.getElementById("catAvatar").style.backgroundColor="transparent";
+    document.getElementById("pandaAvatar").style.backgroundColor="transparent";
+    document.getElementById("monkeyAvatar").style.backgroundColor="transparent";
+    document.getElementById("owlAvatar").style.backgroundColor="transparent";
+}
+function changeAvatarHusky() {
+    document.getElementById("avatar").src="/images/husky.png";
+    document.getElementById("huskyAvatar").style.backgroundColor="rgb(52, 101, 206)";
+    document.querySelector(".problem").style.backgroundImage="url('../images/bone-white.png')";
+    document.getElementById("catAvatar").style.backgroundColor="transparent";
+    document.getElementById("pandaAvatar").style.backgroundColor="transparent";
+    document.getElementById("monkeyAvatar").style.backgroundColor="transparent";
+    document.getElementById("owlAvatar").style.backgroundColor="transparent";
+    document.getElementById("pugAvatar").style.backgroundColor="transparent";
+}
+function changeAvatarCat() {
+    document.getElementById("avatar").src="/images/cat.png";
+    document.getElementById("catAvatar").style.backgroundColor="rgb(52, 101, 206)";
+    document.querySelector(".problem").style.backgroundImage="url('../images/fish.png')";
+    document.getElementById("huskyAvatar").style.backgroundColor="transparent";
+    document.getElementById("pandaAvatar").style.backgroundColor="transparent";
+    document.getElementById("monkeyAvatar").style.backgroundColor="transparent";
+    document.getElementById("owlAvatar").style.backgroundColor="transparent";
+    document.getElementById("pugAvatar").style.backgroundColor="transparent";
+}
+function changeAvatarPanda() {
+    document.getElementById("avatar").src="/images/panda.png";
+    document.getElementById("pandaAvatar").style.backgroundColor="rgb(52, 101, 206)";
+    document.getElementById("huskyAvatar").style.backgroundColor="transparent";
+    document.getElementById("catAvatar").style.backgroundColor="transparent";
+    document.getElementById("monkeyAvatar").style.backgroundColor="transparent";
+    document.getElementById("owlAvatar").style.backgroundColor="transparent";
+    document.getElementById("pugAvatar").style.backgroundColor="transparent";
+}
+function changeAvatarMonkey() {
+    document.getElementById("avatar").src="/images/monkey.png";
+    document.getElementById("monkeyAvatar").style.backgroundColor="rgb(52, 101, 206)";
+    document.getElementById("huskyAvatar").style.backgroundColor="transparent";
+    document.getElementById("catAvatar").style.backgroundColor="transparent";
+    document.getElementById("pandaAvatar").style.backgroundColor="transparent";
+    document.getElementById("owlAvatar").style.backgroundColor="transparent";
+    document.getElementById("pugAvatar").style.backgroundColor="transparent";
+}
+function changeAvatarOwl() {
+    document.getElementById("avatar").src="/images/owl.png";
+    document.getElementById("owlAvatar").style.backgroundColor="rgb(52, 101, 206)";
+    document.getElementById("huskyAvatar").style.backgroundColor="transparent";
+    document.getElementById("catAvatar").style.backgroundColor="transparent";
+    document.getElementById("pandaAvatar").style.backgroundColor="transparent";
+    document.getElementById("monkeyAvatar").style.backgroundColor="transparent";
+    document.getElementById("pugAvatar").style.backgroundColor="transparent";
+}
 function updateProblem() {
-    stopCountdown();
+    clearInterval(countdownTimer);
+    // stopCountdown();
     // stopStartCountdown();
     stopTimer();
-    let timerSeconds = 10;
+    resetCountdown();
     timerEl.innerHTML = timerSeconds + " seconds left";
     problemElement.style.visibility = "visible";
     state.currentProblem = generateProblem()
@@ -56,33 +121,60 @@ function updateProblem() {
     ourField.value = ""
     ourField.focus()
     startTimer();
-    startCountdown();
+    countdownTimer = setInterval(setTimerDisplay, 1000);  
 };
 
-function updateTimer() {
+function resetCountdown() {
+    if (noTimer.checked == true) {
+        document.getElementById("timer").style.display="none";
+    }
+    if (fiveSecBtn.checked == true) {
+        document.getElementById("timer").style.display="block"
+        timerSeconds = 5
+    }
+    if (tenSecBtn.checked== true) {
+        document.getElementById("timer").style.display="block"
+        timerSeconds = 10
+    }
+    if (fifteenSecBtn.checked== true) {
+        document.getElementById("timer").style.display="block"
+        timerSeconds = 15
+    }
+    if (twentySecBtn.checked== true) {
+        document.getElementById("timer").style.display="block"
+        timerSeconds = 20
+    }
+    document.getElementById("timer").style.color="black";
+}
+
+function setTimerDisplay() {
     let seconds = Math.floor(timerSeconds - 1);
     timerEl.innerHTML = seconds + " seconds left";
     timerSeconds--;
-    if (timerSeconds == 0) {
-        updateProblem();
+    if (timerSeconds < 4) {
+        document.getElementById("timer").style.color="rgb(204, 7, 7)";
+        document.getElementById("timer").style.fontWeight="bold";
     }
-};
-function stopStartCountdown() {
-    timerCountdown = setInterval(updateTimer, 1000);
-    clearInterval(timerCountdown);
-    setInterval(updateTimer, 1000);  
-}
-function startCountdown() {
-    timerCountdown = setInterval(updateTimer, 1000);
-};
-
-function stopCountdown() {
-    timerCountdown = setInterval(updateTimer, 1000);
-    clearInterval(timerCountdown);
+    else if (timerSeconds >= 4) {
+        document.getElementById("timer").style.color="black"
+    }
 };
 
 function startTimer() {
-    timer = setTimeout(handleAutoSubmit, 10000);
+    // timer= setTimeout(handleAutoSubmit, 10000);
+    if (fiveSecBtn.checked == true) {
+        timer= setTimeout(handleAutoSubmit, 5000)
+    }
+    else if (tenSecBtn.checked == true) {
+        timer= setTimeout(handleAutoSubmit, 10000)
+    }
+    else if (fifteenSecBtn.checked == true) {
+        timer= setTimeout(handleAutoSubmit, 15000)
+    }
+    else if (twentySecBtn.checked == true) {
+        timer= setTimeout(handleAutoSubmit, 20000)
+    }
+
 };
 
 function stopTimer() {
@@ -132,31 +224,6 @@ function generateProblem() {
 
 ourForm.addEventListener("submit", handleSubmit);
 
-// function autoSubmit() {
-//     setTimeout(handleAutoSubmit, 10000)
-
-// var sec = 15
-// function decreaseSec {
-//     sec=15;
-//     sec--
-// }
-
-// function myTimer() {
-//     // sec= document.querySelector(".seconds").value
-//     var sec= 15
-//     document.getElementById('timer').innerHTML = sec + " seconds left";
-//     do {   
-//         setInterval(decreaseSec, 1000)
-//     }
-//     while (sec > -1)
-//         handleAutoSubmit();
-
-//     sec--;
-//     if (sec == -1) {
-//         // clearTimeout(myTimer, 1000);
-//         // handleAutoSubmit();
-//     }
-// }
 
 
 function handleAutoSubmit() {

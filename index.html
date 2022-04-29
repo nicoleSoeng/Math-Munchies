@@ -13,14 +13,14 @@
 <body>
     <div class="settings-main-content-index">
         <h1>Welcome to Math Munchies</h1>
-        <h2>Choose how you want to practice your math facts and help the hungry pooch.</h2>
+        <h2>Choose how you want to practice your math facts and help the hungry animal get some tasty treats!</h2>
         <div class="settings-boxes">
         <div class="radioContainer">
             <label for="operator"><h3>Problem Type</h3></label>
             <table>
                 <tr>
                 <td>
-                <input class="radio" id="addButton" type="radio" name="operator-choice" value="addition"><label class="operator-image" for="addButton"> Addition </label></input><br>
+                <input class="radio" id="addButton" type="radio" name="operator-choice" value="addition" checked><label class="operator-image" for="addButton"> Addition </label></input><br>
                 </td>
                 </tr>
                 <tr>
@@ -42,13 +42,22 @@
         </div>
         <div class="timer-container">
                 <h3 class="timer-head">Timer</h3>
-                <button type="radio" class="timer-seconds-btn no-timer">No Timer</button>
-                <button type="radio" class="timer-seconds-btn five-seconds-btn">5 seconds</button> 
-                <button type="radio" class="timer-seconds-btn ten-seconds-btn">10 seconds</button> 
-                <button type="radio" class="timer-seconds-btn fifteen-seconds-btn">15 seconds</button>  
-                <button type="radio" class="timer-seconds-btn twenty-seconds-btn">20 seconds</button>        
+                <input type="radio" id="no-timer" class="radio timer-seconds-btn" name="timerValue" value="0" checked><label class="timerLabel" for="no-timer">No Timer</label></input><br>
+                <input type="radio" id="five-seconds-btn" class="timer-seconds-btn" name="timerValue" value="5"><label class="timerLabel" for="five-seconds-btn">5 seconds</label></input><br>
+                <input type="radio" id="ten-seconds-btn" class="timer-seconds-btn" name="timerValue" value="10"><label class="timerLabel" for="ten-seconds-btn">10 seconds</label></input><br>
+                <input type="radio" id="fifteen-seconds-btn" class="timer-seconds-btn" name="timerValue" value="15"><label class="timerLabel" for="fifteen-seconds-btn">15 seconds</label></input><br>
+                <input type="radio" id="twenty-seconds-btn" class="timer-seconds-btn" name="timerValue" value="20"><label class="timerLabel" for="twenty-seconds-btn">20 seconds</label></input><br>
         </div>
-        <div class="number-choice-container">
+        <div class="avatar-container">
+            <h3>Choose Your Animal</h3>
+            <img class="avatar-img" id="pugAvatar" alt="Pug" src="/images/pug-2.png" onclick="changeAvatarPug()">
+            <img class="avatar-img" id="huskyAvatar" alt="Husky" src="/images/husky.png" onclick="changeAvatarHusky()">
+            <img class="avatar-img" id="catAvatar" alt="Husky" src="/images/cat.png" onclick="changeAvatarCat()">
+            <img class="avatar-img" id="pandaAvatar" alt="Husky" src="/images/panda.png" onclick="changeAvatarPanda()">
+            <img class="avatar-img" id="monkeyAvatar" alt="Husky" src="/images/monkey.png" onclick="changeAvatarMonkey()">
+            <img class="avatar-img" id="owlAvatar" alt="Husky" src="/images/owl.png" onclick="changeAvatarOwl()">
+        </div>
+        <!-- <div class="number-choice-container">
             <h3>Choose the numbers you want to practice</h3>
             <div class="numbers">
             <input type="checkbox" id="num1" name="num1" value="1" checked>
@@ -76,7 +85,7 @@
             <input type="checkbox" id="num12" name="num12" value="12" checked>
             <label for="num12">12</label><br>
         </div>
-        </div>
+        </div> -->
     </div>
         <div class="start-btn">
             <button type="button" id="start-btn" onclick="showMainUI()">Start Practicing Your Math Facts!</button>
@@ -97,7 +106,7 @@
             <button class="submit">Submit</button><br><br>
         </form>
         </div>
-        <img id="pug" src="images/pug-2.png" alt="Pug">
+        <img id="avatar" src="images/pug-2.png" alt="Avatar">
         </div>
         <p id="timer"></p>
         <div class="points-tries">
@@ -116,31 +125,6 @@
         <div class="progress-inner"></div>
         </div>
         </div>
-        <!-- <div class="radioContainerIndex">
-            <label for="operator"><h3>Problem Type</h3></label>
-            <table>
-                <tr>
-                <td>
-                <input class="radio" id="addButton" type="radio" name="operator-choice" value="addition"><label class="operator-image" for="addButton"> Addition </label></input><br>
-                </td>
-                </tr>
-                <tr>
-                <td>
-                <input class="radio" id="subtractButton" type="radio" name="operator-choice" value="subtraction"><label class="operator-image" for="subtractButton"> Subtraction</label></input><br>
-                </td> 
-            </tr>
-            <tr>  
-                <td>
-                <input class="radio" id="multiplyButton" type="radio" name="operator-choice" value="multiplication"><label class="operator-image" for="multiplyButton"> Multiplication </label></input><br>
-                </td>
-            </tr> 
-            <tr>
-                <td>
-                <input class="radio" id="divideButton" type="radio" name="operator-choice" value="division"><label class="operator-image" for="divideButton"> Division </label> </input>
-                </td>    
-                </tr>
-            </table>
-        </div> -->
         <div class="overlay">
             <div class="overlay-inner">
                 <p class="end-message"></p>
@@ -148,7 +132,6 @@
             </div>
         </div>
         </div>
-
     <script src="scripts/mathGame.js"></script>
 </body>
 </html>
