@@ -39,6 +39,7 @@ let state= {
 
 function showSettings() {
     stopTimer();
+    resetGame();
     settingsContent.style.display="flex";
     MainUI.style.display="none";
 }
@@ -283,7 +284,7 @@ resetButton.addEventListener("click", resetGame)
 
 function resetGame() {
     document.body.classList.remove("overlay-is-open")
-    updateProblem()
+    // updateProblem()
     state.score=0
     state.wrongAnswers= 0
     pointsNeeded.textContent = 10

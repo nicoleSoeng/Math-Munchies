@@ -97,8 +97,8 @@ body {
 
 }
 #avatar {
-    width: 200px;
-    height: auto;
+    width: auto;
+    height: 250px;
     margin-right: auto;
     margin-left: auto;
 }
@@ -268,6 +268,7 @@ button {
 }
 .progress-bar h2 {
     padding: 5px;
+    margin: 0;
 }
 .progress {
     width: 90%;
@@ -377,6 +378,10 @@ body.overlay-is-open .overlay {
     .main-ui {
         height: 100%;
     }
+    #avatar {
+        width: auto;
+        height: 150px;
+    }
     /* #pug {
         padding-top: 30px;
     } */
@@ -386,6 +391,7 @@ body.overlay-is-open .overlay {
     .problem {
         margin: 10px;
     }
+ 
     .headBox {
         height: auto;
         margin-bottom: 0px;
@@ -404,10 +410,7 @@ body.overlay-is-open .overlay {
         color:rgb(86, 185, 40);
         font-weight: bolder;
     }
-    #pug {
-        width: 150px;
-        height: auto;
-    }
+
     .headBox {
         margin: 10px;
     }
@@ -531,8 +534,9 @@ td:focus {
     font-size: 2.5rem;
 }
 .avatar-img {
-    width: 100px;
-    height: auto;
+    width: auto;
+    height: 150px;
+    margin: 0px 10px;
     cursor: pointer;
 }
 /* .avatar-img:active {
