@@ -53,9 +53,9 @@ function showMainUI() {
 // operatorChoice.forEach(item => {item.addEventListener("click", autoSubmit)})
 
 function changeAvatarPug() {
-    document.getElementById("avatar").src="/images/pug-2.png";
+    document.getElementById("avatar").src="images/pug-2.png";
     document.getElementById("pugAvatar").style.backgroundColor="rgb(52, 101, 206)";
-    document.querySelector(".problem").style.backgroundImage="url('../images/bone-white.png')";
+    document.querySelector(".problem").style.backgroundImage="url('images/bone-white.png')";
     document.getElementById("huskyAvatar").style.backgroundColor="transparent";
     document.getElementById("catAvatar").style.backgroundColor="transparent";
     document.getElementById("pandaAvatar").style.backgroundColor="transparent";
@@ -63,9 +63,9 @@ function changeAvatarPug() {
     document.getElementById("owlAvatar").style.backgroundColor="transparent";
 }
 function changeAvatarHusky() {
-    document.getElementById("avatar").src="/images/husky.png";
+    document.getElementById("avatar").src="images/husky.png";
     document.getElementById("huskyAvatar").style.backgroundColor="rgb(52, 101, 206)";
-    document.querySelector(".problem").style.backgroundImage="url('../images/bone-white.png')";
+    document.querySelector(".problem").style.backgroundImage="url('images/bone-white.png')";
     document.getElementById("catAvatar").style.backgroundColor="transparent";
     document.getElementById("pandaAvatar").style.backgroundColor="transparent";
     document.getElementById("monkeyAvatar").style.backgroundColor="transparent";
@@ -73,9 +73,9 @@ function changeAvatarHusky() {
     document.getElementById("pugAvatar").style.backgroundColor="transparent";
 }
 function changeAvatarCat() {
-    document.getElementById("avatar").src="/images/cat.png";
+    document.getElementById("avatar").src="images/cat.png";
     document.getElementById("catAvatar").style.backgroundColor="rgb(52, 101, 206)";
-    document.querySelector(".problem").style.backgroundImage="url('../images/fish.png')";
+    document.querySelector(".problem").style.backgroundImage="url('images/fish.png')";
     document.getElementById("huskyAvatar").style.backgroundColor="transparent";
     document.getElementById("pandaAvatar").style.backgroundColor="transparent";
     document.getElementById("monkeyAvatar").style.backgroundColor="transparent";
@@ -83,7 +83,7 @@ function changeAvatarCat() {
     document.getElementById("pugAvatar").style.backgroundColor="transparent";
 }
 function changeAvatarPanda() {
-    document.getElementById("avatar").src="/images/panda.png";
+    document.getElementById("avatar").src="images/panda.png";
     document.getElementById("pandaAvatar").style.backgroundColor="rgb(52, 101, 206)";
     document.getElementById("huskyAvatar").style.backgroundColor="transparent";
     document.getElementById("catAvatar").style.backgroundColor="transparent";
@@ -92,7 +92,7 @@ function changeAvatarPanda() {
     document.getElementById("pugAvatar").style.backgroundColor="transparent";
 }
 function changeAvatarMonkey() {
-    document.getElementById("avatar").src="/images/monkey.png";
+    document.getElementById("avatar").src="images/monkey.png";
     document.getElementById("monkeyAvatar").style.backgroundColor="rgb(52, 101, 206)";
     document.getElementById("huskyAvatar").style.backgroundColor="transparent";
     document.getElementById("catAvatar").style.backgroundColor="transparent";
@@ -101,7 +101,7 @@ function changeAvatarMonkey() {
     document.getElementById("pugAvatar").style.backgroundColor="transparent";
 }
 function changeAvatarOwl() {
-    document.getElementById("avatar").src="/images/owl.png";
+    document.getElementById("avatar").src="images/owl.png";
     document.getElementById("owlAvatar").style.backgroundColor="rgb(52, 101, 206)";
     document.getElementById("huskyAvatar").style.backgroundColor="transparent";
     document.getElementById("catAvatar").style.backgroundColor="transparent";
@@ -268,23 +268,39 @@ function handleSubmit(e) {
 function checkLogic() {
     //if you won
     if (state.score === 10) {
+        stopTimer();
+        clearInterval(countdownTimer);
         endMessage.textContent = "Congrats! You won."
         document.body.classList.add("overlay-is-open")
         setTimeout(() => resetButton.focus(), 331)
     }
     //if you lost
     if (state.wrongAnswers === 3) {
+        stopTimer();
+        clearInterval(countdownTimer);
         endMessage.textContent = "Sorry, you lost."
         document.body.classList.add("overlay-is-open")
         setTimeout(() => resetButton.focus(), 331)
     }
 }
-
+const stopButton= document.querySelector(".stop-button");
 resetButton.addEventListener("click", resetGame)
+stopButton.addEventListener("click", stopGame)
+
+function stopGame() {
+    document.body.classList.remove("overlay-is-open")
+    document.querySelector(".problem").style.visibility="hidden";
+    document.getElementById("timer").style.display="none";
+    state.score=0
+    state.wrongAnswers= 0
+    pointsNeeded.textContent = 10
+    mistakesAllowed.textContent = 2
+    renderProgressBar()
+}
 
 function resetGame() {
     document.body.classList.remove("overlay-is-open")
-    // updateProblem()
+    updateProblem()
     state.score=0
     state.wrongAnswers= 0
     pointsNeeded.textContent = 10

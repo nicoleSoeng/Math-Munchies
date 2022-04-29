@@ -126,7 +126,7 @@ h1 {
     font-size: 48px;
     padding: 20px;
     margin: 10px;
-    background-image: url("../images/bone-white.png");
+    background-image: url("images/bone-white.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -423,7 +423,7 @@ body.overlay-is-open .overlay {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    background-image: url("/images/park-background.png");
+    background-image: url("images/park-background.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
