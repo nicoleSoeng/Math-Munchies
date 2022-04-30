@@ -10,7 +10,7 @@ body {
     /* padding-bottom: 200px; */
     color: black;
     font-weight: bold;
-  background-image: url("images/park-background.png");
+  background-image: url("./images/park-background.png");
   -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -32,7 +32,7 @@ body {
     justify-content: space-around;
     overflow: hidden;
     padding-right: 0px;
-    background-image: url("images/park-background.png");
+    background-image: url("./images/park-background.png");
     -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -126,7 +126,7 @@ h1 {
     font-size: 48px;
     padding: 20px;
     margin: 10px;
-    background-image: url("images/bone-white.png");
+    background-image: url("./images/bone-white.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -423,13 +423,13 @@ body.overlay-is-open .overlay {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    background-image: url("images/park-background.png");
+    background-image: url("./images/park-background.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     /* background-color: rgb(224, 224, 134); */
     /* background-color: rgb(74, 116, 206);
-    background:linear-gradient(0deg, rgba(16, 114, 206, 0.3), rgba(16, 114, 206, 0.3)), url("/images/bone-background.jpg"); */
+    background:linear-gradient(0deg, rgba(16, 114, 206, 0.3), rgba(16, 114, 206, 0.3)), url("./images/bone-background.jpg"); */
 }
 .settings-boxes {
     width: 100%;
