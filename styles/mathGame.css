@@ -536,9 +536,10 @@ td:focus {
     margin: 0px 10px;
     cursor: pointer;
 }
-/* .avatar-img:active {
-    background-color: rgb(52, 101, 206);
-} */
+#huskyAvatar {
+    padding: 0px 20px;
+}
+
 .number-choice-container {
     text-align: left;
     /* border: 5px solid rgb(86, 185, 40); */
