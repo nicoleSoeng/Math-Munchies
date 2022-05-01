@@ -10,7 +10,7 @@ body {
     /* padding-bottom: 200px; */
     color: black;
     font-weight: bold;
-  background-image: url("https://github.com/nicoleSoeng/Math-Munchies/blob/02d0291bb2c6e8fb206f36710c8760b398134116/images/park-background.png");
+  background-image: url("../images/park-background.png");
   -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -32,7 +32,7 @@ body {
     justify-content: space-around;
     overflow: hidden;
     padding-right: 0px;
-    background-image: url("https://github.com/nicoleSoeng/Math-Munchies/blob/02d0291bb2c6e8fb206f36710c8760b398134116/images/park-background.png");
+    background-image: url("../images/park-background.png");
     -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
