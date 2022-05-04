@@ -301,6 +301,7 @@ function handleSubmit(e) {
 function checkLogic() {
     //if you won
     if (state.score === 10) {
+        problemElement.style.visibility= "hidden";
         successSound.pause();
         stopTimer();
         winSound.play();
@@ -311,6 +312,7 @@ function checkLogic() {
     }
     //if you lost
     if (state.wrongAnswers === 3) {
+        problemElement.style.visibility= "hidden";
         wrongSound.pause();
         failSound.play();
         stopTimer();
