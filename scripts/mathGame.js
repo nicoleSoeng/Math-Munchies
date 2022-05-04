@@ -253,6 +253,10 @@ function handleAutoSubmit() {
 }
 
 function handleSubmit(e) {
+    successSound.pause()
+    successSound.currentTime= 0
+    wrongSound.pause()
+    wrongSound.currentTime= 0
     e.preventDefault()
     let correctAnswer
     const p = state.currentProblem
@@ -269,7 +273,6 @@ function handleSubmit(e) {
         updateProblem()
         renderProgressBar()
     }
-    
     else {
         wrongSound.play();
         stopTimer()
