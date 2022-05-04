@@ -218,8 +218,8 @@ function generateProblem() {
     } 
     if (document.getElementById("multiplyButton").checked == true) {
         operator = "x" 
-        numberOne = generateNumber(12)
-        numberTwo = generateNumber(12)
+        numberOne = generateNumber(10)
+        numberTwo = generateNumber(10)
     }
 
     if (document.getElementById("divideButton").checked == true) {
