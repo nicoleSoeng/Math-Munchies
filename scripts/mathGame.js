@@ -225,8 +225,8 @@ function generateProblem() {
     if (document.getElementById("divideButton").checked == true) {
         operator = "/" 
         numberOne = generateNumber(144)
-        numberTwo = generateNumber(12)
-        if (numberOne < numberTwo || (numberOne/numberTwo) % 1 != 0 || numberTwo == 1 || numberOne/numberTwo > 12) {
+        numberTwo = generateNumber(10)
+        if (numberOne < numberTwo || (numberOne/numberTwo) % 1 != 0 || numberTwo == 1 || numberOne/numberTwo > 10) {
             generateProblem()
         }
     }
