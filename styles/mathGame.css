@@ -89,7 +89,20 @@ body {
     position: relative;
     /* background-color: rgba(224, 224, 26, 0.5); */
 }
+
+#wrong-answer-notification {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 300;
+    background-color: rgb(185, 12, 0);
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 1.5rem;
+}
+
 .problem-img-container {
+    position: relative;
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -109,6 +122,7 @@ body {
     height: 75px;
     width: 100%;
 } */
+
 h1 {
     font-size: 55px;
     margin: 20px;
@@ -339,7 +353,8 @@ body.overlay-is-open .overlay {
 @keyframes showError {
     50% {
         color: red;
-        transform: scale(1.2);
+        font-weight: bold;
+        transform: scale(1.4);
     }
 
     100% {
@@ -349,6 +364,22 @@ body.overlay-is-open .overlay {
 }
 .animate-wrong {
     animation: .33s showError;
+    border: 3px solid red;
+    border-radius: 50%;
+}
+
+#wrongSymbol {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 300;
+}
+
+#correctSymbol {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 300;
 }
 @media screen and (max-width: 1000px) {
     #settings-btn {

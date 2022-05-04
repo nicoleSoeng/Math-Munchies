@@ -97,6 +97,9 @@
         <a id="settings-btn" onclick="showSettings()">Settings</a>
     </div>
         <div class="problem-img-container">
+            <p id="wrong-answer-notification">"Try again!"</p>
+            <img id="wrongSymbol" src="images/redX.png" width="200px" height="200px">
+            <img id="correctSymbol" src="images/green-checkmark.png" width="200px" height="200px">
         <div class="problem-container">
         <p class="problem"><span class="numberOne"></span><span class="numberTwo"></span></p>
         <form action="" class="our-form">
@@ -104,6 +107,10 @@
             <button class="submit">Submit</button><br><br>
         </form>
         </div>
+        <audio id="successSound" src="media/shorterSuccessSound.mp3"></audio>
+        <audio id="wrongSound" src="media/negative_beeps.mp3"></audio>
+        <audio id="winSound" src="media/winSound.mp3"></audio>
+        <audio id="failSound" src="media/failSound.mp3"></audio>
         <img id="avatar" src="images/pug-2.png" alt="Avatar">
         </div>
         <p id="timer"></p>

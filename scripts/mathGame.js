@@ -30,15 +30,32 @@ const fifteenSecBtn= document.getElementById("fifteen-seconds-btn");
 const twentySecBtn= document.getElementById("twenty-seconds-btn");
 var countdownTimer
 var timerSeconds
+const successSound= document.getElementById("successSound");
+const wrongSound= document.getElementById("wrongSound")
+const winSound= document.getElementById("winSound")
+const failSound= document.getElementById("failSound")
+const wrongSymbol= document.getElementById("wrongSymbol");
+const correctSymbol= document.getElementById("correctSymbol");
 
 let state= {
     score: 0,
     wrongAnswers: 0
 };
 
+
+function toggleSound() {
+    winSound.muted;
+    successSound.muted;
+}
+
+
 function showSettings() {
     stopTimer();
-    resetGame();
+    state.score=0
+    state.wrongAnswers= 0
+    pointsNeeded.textContent = 10
+    mistakesAllowed.textContent = 2
+    renderProgressBar()
     settingsContent.style.display="flex";
     MainUI.style.display="none";
 }
@@ -224,14 +241,17 @@ function generateProblem() {
 
 ourForm.addEventListener("submit", handleSubmit);
 
-
+const wrongAnswerMessage= document.getElementById("wrong-answer-notification");
 
 function handleAutoSubmit() {
+    wrongSound.play();
     ourForm.submit
     state.wrongAnswers++
     mistakesAllowed.textContent = 2 - state.wrongAnswers
-    problemElement.classList.add("animate-wrong")
-    setTimeout(()=> problemElement.classList.remove("animate-wrong"), 331)
+    // problemElement.classList.add("animate-wrong")
+    // setTimeout(()=> problemElement.classList.remove("animate-wrong"), 331)
+    wrongSymbol.style.display="block";
+        setTimeout(()=> wrongSymbol.style.display="none", 400);
     updateProblem()
     checkLogic()
 }
@@ -245,6 +265,9 @@ function handleSubmit(e) {
     if (p.operator == "x") correctAnswer = p.numberOne * p.numberTwo
     if (p.operator == "/") correctAnswer = p.numberOne / p.numberTwo
     if(parseInt(ourField.value, 10) === correctAnswer) {
+        successSound.play();
+        correctSymbol.style.display="block";
+    setTimeout(()=> correctSymbol.style.display="none", 400);
         state.score++
         pointsNeeded.textContent = 10 - state.score
         updateProblem()
@@ -252,14 +275,23 @@ function handleSubmit(e) {
     }
     
     else {
+        wrongSound.play();
         stopTimer()
+        // clearInterval(countdownTimer);
         state.wrongAnswers++
         mistakesAllowed.textContent = 2 - state.wrongAnswers
-        problemElement.classList.add("animate-wrong")
-        setTimeout(()=> problemElement.classList.remove("animate-wrong"), 331)
+        // problemElement.classList.add("animate-wrong")
+        // setTimeout(()=> problemElement.classList.remove("animate-wrong"), 331)
+        wrongSymbol.style.display="block";
+        setTimeout(()=> wrongSymbol.style.display="none", 400);
+        // wrongAnswerMessage.style.display="block";
+        // setTimeout(()=> wrongAnswerMessage.style.display="none", 1000);
         ourField.value=""
         ourField.focus()
-        startTimer()
+        startTimer();
+        resetCountdown();
+        timerEl.innerHTML = timerSeconds + " seconds left";
+        // countdownTimer = setInterval(setTimerDisplay, 1000);
     }
     checkLogic()
     };
@@ -267,7 +299,9 @@ function handleSubmit(e) {
 function checkLogic() {
     //if you won
     if (state.score === 10) {
+        successSound.pause();
         stopTimer();
+        winSound.play();
         clearInterval(countdownTimer);
         endMessage.textContent = "Congratulations! You won."
         document.body.classList.add("overlay-is-open")
@@ -275,8 +309,11 @@ function checkLogic() {
     }
     //if you lost
     if (state.wrongAnswers === 3) {
+        wrongSound.pause();
+        failSound.play();
         stopTimer();
         clearInterval(countdownTimer);
+        mistakesAllowed.innerHTML = "0";
         endMessage.textContent = "Sorry, you lost this time. Do you want to try again?"
         document.body.classList.add("overlay-is-open")
         setTimeout(() => resetButton.focus(), 331)
