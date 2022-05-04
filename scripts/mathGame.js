@@ -207,7 +207,7 @@ function generateProblem() {
         operator = "-"
         numberOne = generateNumber(20)
         numberTwo = generateNumber(20)
-        while (numberOne < numberTwo) {
+        while (numberOne < numberTwo || numberOne - numberTwo > 10) {
             generateProblem()
         }
     }
@@ -218,15 +218,15 @@ function generateProblem() {
     } 
     if (document.getElementById("multiplyButton").checked == true) {
         operator = "x" 
-        numberOne = generateNumber(10)
-        numberTwo = generateNumber(10)
+        numberOne = generateNumber(12)
+        numberTwo = generateNumber(12)
     }
 
     if (document.getElementById("divideButton").checked == true) {
         operator = "/" 
-        numberOne = generateNumber(30)
-        numberTwo = generateNumber(10)
-        if (numberOne < numberTwo || (numberOne/numberTwo) % 1 != 0 || numberTwo == 1) {
+        numberOne = generateNumber(144)
+        numberTwo = generateNumber(12)
+        if (numberOne < numberTwo || (numberOne/numberTwo) % 1 != 0 || numberTwo == 1 || numberOne/numberTwo > 12) {
             generateProblem()
         }
     }
