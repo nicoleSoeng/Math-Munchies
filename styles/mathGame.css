@@ -10,7 +10,7 @@ body {
     /* padding-bottom: 200px; */
     color: black;
     font-weight: bold;
-  background-image: url("images/park-background.png");
+  background-image: url("/images/parkBackground.png");
   -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -20,7 +20,7 @@ body {
 }
 
 .settings-main-content-index {
-    display: none;
+    /* display: none; */
     width: 100%;
     height: 100%;
     min-height: 100vh;
@@ -32,7 +32,7 @@ body {
     justify-content: space-around;
     overflow: hidden;
     padding-right: 0px;
-    background-image: url("images/park-background.png");
+    background-image: url("/images/parkBackground.png");
     -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -63,9 +63,11 @@ body {
                          "b b b b b b"; 
 }*/
 .main-ui {
+    display: none;
     width: 100%;
     height: 100%;
 }
+
 #settings-btn {
     position: absolute;
     cursor: pointer;
@@ -126,7 +128,7 @@ h1 {
     font-size: 48px;
     padding: 20px;
     margin: 10px;
-    background-image: url("images/bone-white.png");
+    background-image: url("/images/boneWhite.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -170,13 +172,13 @@ h1 {
 .points-needed {
     margin-right: 20px;
 }
+
 #timer {
  height: auto;
  width: auto;
  color: black;
  font-weight: bold;
  font-size: 2rem;
- color: rgb(204, 7, 7);
 }
 
 .radioContainerIndex {
@@ -301,14 +303,10 @@ button {
 .box {
     height: 40px;
     width: 100%;
-    /* border-right: 1px solid #c7c7c7; */
-    /* flex: 1; */
 }
 
 .overlay {
     position: fixed;
-    /* height: 100%;
-    width: 100%; */
     top: 0;
     bottom: 0;
     left: 0;
@@ -322,6 +320,10 @@ button {
     visibility: hidden;
     transition: all .33s ease-out;
     transform: scale(1.2);
+}
+
+.end-message {
+    font-size: 2rem;
 }
 
 body.overlay-is-open .overlay {
@@ -439,7 +441,7 @@ body.overlay-is-open .overlay {
     flex-wrap: wrap;
     justify-content: space-around;
 }
-.settings-main-content h1 {
+.settings-main-content-index h1 {
     width: 100%;
     /* background-color: rgb(74, 116, 206);
     background-color: rgb(224, 224, 134); */
@@ -448,7 +450,7 @@ body.overlay-is-open .overlay {
     padding: 10px;
 }
 
-.settings-main-content h2 {
+.settings-main-content-index h2 {
     width: 100%;
     margin: 0;
     padding: 10px;
@@ -494,7 +496,7 @@ td:focus {
     background-color: rgb(52, 101, 206);
     background-color: rgba(255, 255, 255, .5);
     border-radius: 10px;
-    border-radius: 5px;;
+    border-radius: 5px;
     padding: 10px 50px;
     margin: 10px;
     font-size: 1.75rem;
@@ -529,12 +531,16 @@ td:focus {
 }
 .avatar-container h3 {
     font-size: 2.5rem;
+    width: 100%;
 }
 .avatar-img {
     width: auto;
     height: 150px;
     margin: 0px 10px;
     cursor: pointer;
+}
+#huskyAvatar {
+    padding: 0px 20px;
 }
 /* .avatar-img:active {
     background-color: rgb(52, 101, 206);

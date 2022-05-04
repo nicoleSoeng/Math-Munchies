@@ -21,7 +21,6 @@ const timerContainer= document.querySelector(".timerContainer")
 const StartBtn = document.getElementById("start-btn")
 const settingsContent= document.querySelector(".settings-main-content-index")
 const MainUI= document.querySelector(".main-ui")
-// let timerSeconds= 10
 const timerEl = document.getElementById('timer'); 
 const timerValue = document.querySelectorAll(".timer-seconds-btn").value;
 const noTimer= document.getElementById("no-timer");
@@ -270,7 +269,7 @@ function checkLogic() {
     if (state.score === 10) {
         stopTimer();
         clearInterval(countdownTimer);
-        endMessage.textContent = "Congrats! You won."
+        endMessage.textContent = "Congratulations! You won."
         document.body.classList.add("overlay-is-open")
         setTimeout(() => resetButton.focus(), 331)
     }
@@ -278,7 +277,7 @@ function checkLogic() {
     if (state.wrongAnswers === 3) {
         stopTimer();
         clearInterval(countdownTimer);
-        endMessage.textContent = "Sorry, you lost."
+        endMessage.textContent = "Sorry, you lost this time. Do you want to try again?"
         document.body.classList.add("overlay-is-open")
         setTimeout(() => resetButton.focus(), 331)
     }
@@ -289,6 +288,7 @@ stopButton.addEventListener("click", stopGame)
 
 function stopGame() {
     document.body.classList.remove("overlay-is-open")
+    showSettings()
     document.querySelector(".problem").style.visibility="hidden";
     document.getElementById("timer").style.display="none";
     state.score=0
@@ -310,8 +310,15 @@ function resetGame() {
 
 function renderProgressBar() {
     progressFill.style.transform = `scaleX(${1-(state.score/10)})`;
-    progressFill.style.borderTopLeftRadius = "0px";
-    progressFill.style.borderBottomLeftRadius = "0px";
+    if (state.score == 0) {
+        progressFill.style.borderTopLeftRadius = "5px";
+        progressFill.style.borderBottomLeftRadius = "5px";
+    }
+    else if (state.score != 0) {
+        progressFill.style.borderTopLeftRadius = "0px";
+        progressFill.style.borderBottomLeftRadius = "0px";
+    }
+
 }
 
 function updatePugQuotes() {
