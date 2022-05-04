@@ -10,7 +10,7 @@ body {
     /* padding-bottom: 200px; */
     color: black;
     font-weight: bold;
-  background-image: url("/images/parkBackground.png");
+  background-image: url("https://nicolesoeng.github.io/Math-Munchies/images/parkBackground.png");
   -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -32,7 +32,7 @@ body {
     justify-content: space-around;
     overflow: hidden;
     padding-right: 0px;
-    background-image: url("/images/parkBackground.png");
+    background-image: url("https://nicolesoeng.github.io/Math-Munchies/images/parkBackground.png");
     -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -128,7 +128,7 @@ h1 {
     font-size: 48px;
     padding: 20px;
     margin: 10px;
-    background-image: url("/images/boneWhite.png");
+    background-image: url("https://nicolesoeng.github.io/Math-Munchies/images/boneWhite.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -425,13 +425,13 @@ body.overlay-is-open .overlay {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    background-image: url("images/park-background.png");
+    background-image: url("images/parkBackground.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     /* background-color: rgb(224, 224, 134); */
     /* background-color: rgb(74, 116, 206);
-    background:linear-gradient(0deg, rgba(16, 114, 206, 0.3), rgba(16, 114, 206, 0.3)), url("/images/bone-background.jpg"); */
+    background:linear-gradient(0deg, rgba(16, 114, 206, 0.3), rgba(16, 114, 206, 0.3)), url("./images/bone-background.jpg"); */
 }
 .settings-boxes {
     width: 100%;
@@ -457,7 +457,7 @@ body.overlay-is-open .overlay {
     /* background-color: rgb(74, 116, 206); */
 }
 
-.settings-main-content h3 {
+.settings-main-content-index h3 {
     text-align: center;
     font-size: 2rem;
     margin: 1rem;
@@ -542,9 +542,6 @@ td:focus {
 #huskyAvatar {
     padding: 0px 20px;
 }
-/* .avatar-img:active {
-    background-color: rgb(52, 101, 206);
-} */
 .number-choice-container {
     text-align: left;
     /* border: 5px solid rgb(86, 185, 40); */
