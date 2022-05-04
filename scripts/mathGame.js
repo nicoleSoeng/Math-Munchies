@@ -96,6 +96,7 @@ function changeAvatarCat() {
 }
 function changeAvatarPanda() {
     document.getElementById("avatar").src="images/panda.png";
+    document.querySelector(".problem").style.backgroundImage="url('images/cloud.png')"
     document.getElementById("pandaAvatar").style.backgroundColor="rgb(52, 101, 206)";
     document.getElementById("huskyAvatar").style.backgroundColor="transparent";
     document.getElementById("catAvatar").style.backgroundColor="transparent";
@@ -105,6 +106,7 @@ function changeAvatarPanda() {
 }
 function changeAvatarMonkey() {
     document.getElementById("avatar").src="images/monkey.png";
+    document.querySelector(".problem").style.backgroundImage="url('images/cloud.png')"
     document.getElementById("monkeyAvatar").style.backgroundColor="rgb(52, 101, 206)";
     document.getElementById("huskyAvatar").style.backgroundColor="transparent";
     document.getElementById("catAvatar").style.backgroundColor="transparent";
@@ -114,6 +116,7 @@ function changeAvatarMonkey() {
 }
 function changeAvatarOwl() {
     document.getElementById("avatar").src="images/owl.png";
+    document.querySelector(".problem").style.backgroundImage="url('images/cloud.png')"
     document.getElementById("owlAvatar").style.backgroundColor="rgb(52, 101, 206)";
     document.getElementById("huskyAvatar").style.backgroundColor="transparent";
     document.getElementById("catAvatar").style.backgroundColor="transparent";
