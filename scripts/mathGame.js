@@ -43,10 +43,6 @@ let state= {
 };
 
 
-function toggleSound() {
-    winSound.muted;
-    successSound.muted;
-}
 
 
 function showSettings() {
@@ -325,6 +321,10 @@ stopButton.addEventListener("click", stopGame)
 
 function stopGame() {
     document.body.classList.remove("overlay-is-open")
+    failSound.pause()
+    failSound.currentTime = 0
+    winSound.pause()
+    winSound.currentTime = 0
     showSettings()
     document.querySelector(".problem").style.visibility="hidden";
     document.getElementById("timer").style.display="none";
@@ -338,6 +338,10 @@ function stopGame() {
 function resetGame() {
     document.body.classList.remove("overlay-is-open")
     updateProblem()
+    failSound.pause()
+    failSound.currentTime = 0
+    winSound.pause()
+    winSound.currentTime = 0
     state.score=0
     state.wrongAnswers= 0
     pointsNeeded.textContent = 10
