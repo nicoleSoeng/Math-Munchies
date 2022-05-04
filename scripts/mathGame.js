@@ -206,15 +206,15 @@ function generateProblem() {
     if (document.getElementById("subtractButton").checked == true) {
         operator = "-"
         numberOne = generateNumber(20)
-        numberTwo = generateNumber(12)
+        numberTwo = generateNumber(10)
         while (numberOne < numberTwo || numberOne - numberTwo > 10) {
             generateProblem()
         }
     }
     if (document.getElementById("addButton").checked == true) {
         operator = "+" 
-        numberOne = generateNumber(12)
-        numberTwo = generateNumber(12)
+        numberOne = generateNumber(10)
+        numberTwo = generateNumber(10)
     } 
     if (document.getElementById("multiplyButton").checked == true) {
         operator = "x" 
