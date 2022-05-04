@@ -206,7 +206,7 @@ function generateProblem() {
     if (document.getElementById("subtractButton").checked == true) {
         operator = "-"
         numberOne = generateNumber(20)
-        numberTwo = generateNumber(20)
+        numberTwo = generateNumber(12)
         while (numberOne < numberTwo || numberOne - numberTwo > 10) {
             generateProblem()
         }
