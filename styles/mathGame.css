@@ -132,7 +132,10 @@ h1 {
     color:rgb(86, 185, 40);
     font-weight: bolder;
 }
-
+/* .mainContent {
+    display: flex;
+    flex-direction: row;
+} */
 .problem-container {
     text-align: center;
 }
